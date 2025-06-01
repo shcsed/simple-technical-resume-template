@@ -87,6 +87,11 @@
   body
 }
 
+
+// ---
+// Date format configuration
+#let date_format = "[year].[month repr:numerical]"
+
 // ---
 // Custom functions
 
@@ -139,14 +144,14 @@
   }
 
   return [
-      #start-date.display("[month repr:short] [year]") -- 
+      #start-date.display(date_format) -- 
       #if (
         (end-date.month() == datetime.today().month()) and 
         (end-date.year() == datetime.today().year())
       ) [
         Present
       ] else [
-        #end-date.display("[month repr:short] [year]")
+        #end-date.display(date_format)
       ]
   ]
 }
